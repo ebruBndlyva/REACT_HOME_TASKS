@@ -1,0 +1,60 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+.weather-wrapper{
+  border-radius: 10px;
+  background-color: white;
+  padding: 20px;
+  form{
+    background-color:  #AE3ABA;
+    padding: 20px ;
+    display: flex;
+    gap: 5px;
+   
+    input{
+      border: none;
+      font-size: 18px;
+      &:focus{
+        outline: none;
+        text-transform: capitalize;
+      }
+    }
+    button{
+      border: none;
+      background-color: white;
+      color: #AE3ABA;
+      padding: 10px ;
+    }
+  }
+  .desc{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+    .icon{
+      border: none;
+      width: 100px;
+      height: 100px;
+      img{
+        width: 100%;
+        height: 100%;
+      }
+    }
+    .desc-foot{
+      width: 100%;
+      display: flex;
+     justify-content: space-evenly; 
+    }
+  }
+
+}
+
+
+
+
+
+
+

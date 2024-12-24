@@ -2,59 +2,45 @@
   "users": [
     {
       "id": "26a7",
-      "name": "rdgertr",
-      "title": "Front-end",
-      "email": "ebru@gmail.com",
-      "role": "member"
-    },
-    {
-      "id": "63b1",
-      "name": "rdgertr",
-      "title": "Front-end",
-      "email": "ebru@gmail.com",
-      "role": "member"
-    },
-    {
-      "id": "228d",
-      "name": "rdgertr",
-      "title": "Front-end",
-      "email": "ebru@gmail.com",
-      "role": "member"
+      "name": "Lindsay Walton\t",
+      "profession": "Front-end Developer",
+      "email": "lindsay.walton@example.com",
+      "role": "\tMember"
     },
     {
       "id": "aa44",
-      "name": "rdgertr",
-      "title": "Front-end",
-      "email": "ebru@gmail.com",
-      "role": "member"
+      "name": "Courtney Henry\t",
+      "profession": "\tDesigner",
+      "email": "courtney.henry@example.com",
+      "role": "\tAdmin"
     },
     {
       "id": "00d5",
-      "name": "rdgertr",
-      "title": "Front-end",
-      "email": "ebru@gmail.com",
-      "role": "member"
+      "name": "Tom Cook",
+      "profession": "Director of Product",
+      "email": "tom.cook@example.com",
+      "role": "Member"
     },
     {
       "id": "4ab8",
-      "name": "rdgertr",
-      "title": "Front-end",
-      "email": "ebru@gmail.com",
-      "role": "member"
+      "name": "Whitney Francis",
+      "profession": "Copywriter",
+      "email": "whitney.francis@example.com",
+      "role": "Admin"
     },
     {
       "id": "70f4",
-      "name": "aaaaa",
-      "title": "Front-end",
-      "email": "ebru@gmail.com",
-      "role": "member"
+      "name": "Leonard Krasner",
+      "profession": "Senior Design",
+      "email": "leonard.krasner@example.com",
+      "role": "Owner"
     },
     {
-      "id": "794c",
-      "name": "aaaaa",
-      "title": "Front-end",
-      "email": "ebru@gmail.com",
-      "role": "member"
+      "id": "79f4",
+      "name": "Floyd Miles",
+      "profession": "Principal Designer",
+      "email": "floyd.miles@example.com",
+      "role": "Member"
     }
   ]
 }

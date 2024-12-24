@@ -8,6 +8,7 @@ import './App.css'
 function App() {
   let [countryName, setCountryName] = useState("Baku")
   let [weatherArr, setWeatherArr] = useState({})
+  
  function getData() {
    axios.get(`https://api.weatherapi.com/v1/current.json?key=7b1eaf6efd804a44b87101529222212&q=${countryName}&aqi=no`)
      .then(result=>{

@@ -16,6 +16,10 @@ function App() {
   let [prof, setProf] = useState("");
   let [email, seteEmail] = useState("");
   let [role, setRole] = useState("");
+  let [name2, setName2] = useState("");
+  let [prof2, setProf2] = useState("");
+  let [email2, seteEmail2] = useState("");
+  let [role2, setRole2] = useState("");
 
   function getData() {
     axios.get("http://localhost:4000/users")
@@ -43,9 +47,33 @@ function App() {
         seteEmail(res.data.email);
         setRole(res.data.role);
       });
-    setShowForm(true); // Formu aç
+    setShowForm(true);
   }
 
+  function addForm(e) {
+    e.preventDefault();
+    let newObj = {
+      name: name2,
+      profession: prof2,
+      email: email2,
+      role: role2,
+    };
+  
+    axios.post("http://localhost:4000/users", newObj)
+      .then(res => {
+       
+        setData([...datas, res.data]); 
+        
+        setName2("");
+        setProf2("");
+        seteEmail2("");
+        setRole2("");
+      })
+      .catch(err => {
+        console.error("Xəta baş verdi: ", err);
+      });
+  }
+  
   function handleSubmit(e) {
     e.preventDefault();
     let newObj = {
@@ -58,12 +86,12 @@ function App() {
     axios.put(`http://localhost:4000/users/${updateData.id}`, newObj)
       .then(res => {
         console.log(res.data);
-        getData(); // Siyahını yenilə
+        getData();
         setName("");
         setProf("");
         seteEmail("");
         setRole("");
-        setShowForm(false); // Formu bağla
+        setShowForm(false);
       });
   }
 
@@ -72,11 +100,11 @@ function App() {
       .then(res => {
         setModalData(res.data);
       });
-    setShowModal(true); // Modalı aç
+    setShowModal(true);
   }
 
   function closeForm() {
-    setShowForm(false); // Formu bağla
+    setShowForm(false);
   }
 
   useEffect(() => {
@@ -85,38 +113,51 @@ function App() {
 
   return (
     <>
-      <Table striped bordered hover className='w-90% m-auto'>
-        <thead>
-          <tr>
-            <th>Id</th>
-            <th>Name</th>
-            <th>Profession</th>
-            <th>Email</th>
-            <th>Role</th>
-            <th>Delete</th>
-            <th>Update</th>
-          </tr>
-        </thead>
-        <tbody>
-          {
-            datas.map((user) => (
-              <tr key={user.id}>
-                <td>{user.id}</td>
-                <td style={{cursor:'pointer'}} onClick={() => handleModal(user.id)}>{user.name}</td>
-                <td>{user.profession}</td>
-                <td>{user.email}</td>
-                <td>{user.role}</td>
-                <td>
-                  <DeleteOutlined className='btn btn-danger' onClick={() => deleteData(user.id)} />
-                </td>
-                <td>
-                  <EditOutlined className='btn btn-primary' onClick={() => updatesData(user.id)} />
-                </td>
-              </tr>
-            ))
-          }
-        </tbody>
-      </Table>
+      <form className='w-50' onSubmit={(e)=>addForm(e)}>
+        <label htmlFor="name">Name</label>
+        <input value={name2} onChange={(e) => setName2(e.target.value)} type="text" />
+        <label htmlFor="prof">Profession</label>
+        <input value={prof2} onChange={(e) => setProf2(e.target.value)} type="text" />
+        <label htmlFor="email">Email</label>
+        <input value={email2} onChange={(e) => seteEmail2(e.target.value)} type="email" />
+        <label htmlFor="role">Role</label>
+        <input value={role2} onChange={(e) => setRole2(e.target.value)} type="text" />
+        <button className='btn btn-success'>Add</button>
+      </form>
+      <div className="table p-5">
+        <Table striped bordered hover>
+          <thead>
+            <tr>
+              <th>Id</th>
+              <th>Name</th>
+              <th>Profession</th>
+              <th>Email</th>
+              <th>Role</th>
+              <th>Delete</th>
+              <th>Update</th>
+            </tr>
+          </thead>
+          <tbody>
+            {
+              datas.map((user) => (
+                <tr key={user.id}>
+                  <td>{user.id}</td>
+                  <td style={{ cursor: 'pointer' }} onClick={() => handleModal(user.id)}>{user.name}</td>
+                  <td>{user.profession}</td>
+                  <td>{user.email}</td>
+                  <td>{user.role}</td>
+                  <td>
+                    <DeleteOutlined className='btn btn-danger' onClick={() => deleteData(user.id)} />
+                  </td>
+                  <td>
+                    <EditOutlined className='btn btn-primary' onClick={() => updatesData(user.id)} />
+                  </td>
+                </tr>
+              ))
+            }
+          </tbody>
+        </Table>
+      </div>
 
       {/* Modal */}
       <div
